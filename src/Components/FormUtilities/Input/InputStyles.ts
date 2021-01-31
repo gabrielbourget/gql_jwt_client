@@ -2,7 +2,7 @@ import { StyleSheet } from 'aphrodite';
 import { ThemeInfo } from '../../UI_InfoProvider/UI_InfoProvider';
 import { DEFAULT_FORM_CONTROL_WIDTH } from '../helpers';
 import { IInputProps } from './helpers';
-import { DISTANCE_COEFFICIENT } from '../../../StyleGuide/distanceTable';
+import { DISTANCE_COEFFICIENT } from "../../../StyleGuide/distanceTable";
 
 export const styleGen = (props: IInputProps, themeInfo: ThemeInfo) => {
   const {

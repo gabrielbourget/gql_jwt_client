@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, StyleSheet } from 'aphrodite';
 // import { VERTICAL, HORIZONTAL } from '../../../constants';
-import { palette } from '../../../styleGuide/colors';
+import { palette } from "../../../StyleGuide/colors";
 import { HORIZONTAL } from '../../../constants';
 
 // - TODO: -> Figure out how to use direction constants here instead of hard coding strings

@@ -4,7 +4,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { CheckmarkIcon } from '../IconPresets';
 import { UIContext, ThemeInfo } from '../../UI_InfoProvider/UI_InfoProvider';
 import { ROUNDED } from '../../../constants';
-import { styleGuide } from '../../../styleGuide/styleGuide';
+import { styleGuide } from '../../../StyleGuide/styleGuide';
 // -> Within Component
 import { styleGen } from './IndicatorStyles';
 import { calibrateComponent, IIndicatorProps } from './helpers';

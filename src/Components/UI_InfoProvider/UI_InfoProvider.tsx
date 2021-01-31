@@ -1,6 +1,6 @@
 import React from 'react';
-import { styleGuide } from '../../styleGuide/styleGuide';
-import { generateTypographyTable } from '../../styleGuide/typography';
+import { styleGuide } from '../../StyleGuide/styleGuide';
+import { generateTypographyTable } from '../../StyleGuide/typography';
 
 enum themes {
   LIGHT = "light",

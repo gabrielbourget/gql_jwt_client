@@ -12,7 +12,7 @@ import {
   DIRECTORY, NO_RESOURCE_TYPE, ZIP_FILE, DROPBOX_DRIVE, PDF_FILE, JPG_FILE, CODE_REPOSITORY,
   ILLUSTRATOR_FILE, PHOTOSHOP_FILE
 } from '../constants';
-import { styleGuide } from '../styleGuide/styleGuide';
+import { styleGuide } from '../StyleGuide/styleGuide';
 
 const scanForPrimaryResourceType = (types?: string[]) => {
 

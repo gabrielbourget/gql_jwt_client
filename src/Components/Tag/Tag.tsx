@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 import { XIcon } from '../VisualUtilities/IconPresets';
 import { UIContext, ThemeInfo } from '../UI_InfoProvider/UI_InfoProvider';
 import { ROUND } from '../../constants';
-import { styleGuide } from '../../styleGuide/styleGuide';
+import { styleGuide } from '../../StyleGuide/styleGuide';
 // -> Within Component
 import { styleGen } from './TagStyles';
 import { ITagProps, calibrateComponent } from './helpers';

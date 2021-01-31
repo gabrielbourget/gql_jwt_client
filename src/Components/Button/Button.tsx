@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import Spacer from '../LayoutUtilities/Spacer/Spacer';
 import { UIContext, ThemeInfo } from '../UI_InfoProvider/UI_InfoProvider';
 import { ROUNDED, LEFT, RIGHT, PRIMARY } from '../../constants';
-import { styleGuide } from '../../styleGuide/styleGuide';
+import { styleGuide } from '../../StyleGuide/styleGuide';
 // -> Within Component
 import { calibrateComponent, IButtonProps } from './helpers';
 import styleGen from './ButtonStyles';

@@ -6,7 +6,7 @@ import { StyleSheet, css } from 'aphrodite';
 // import { UIContext } from '../../Components/UI_InfoProvider/UI_InfoProvider';
 // import CourageCircleLoader from '../../Components/Loaders/CircleLoader/Variants/CourageCircleLoader/CourageCircleLoader';
 import FillUnderNavBarCradle from '../../Components/LayoutUtilities/Cradles/FillUnderNavBarCradle/FillUnderNavBarCradle';
-import EnrollmentForm from '../../Components/FormUtilities/ExampleForms/EnrollmentForm/EnrollmentForm';
+import { gql, useQuery } from "@apollo/client";
 import { NAV_BAR_HEIGHT } from '../../constants';
 
 const styleGen = () => {
@@ -26,11 +26,22 @@ const styleGen = () => {
 const TestGround: React.FC = () => {
   // const uiInfo = useContext(UIContext);
   const { cradle } = styleGen();
+  const { data, loading } = useQuery(gql`
+    {
+      hello
+    }
+  `);
 
   return (
     <FillUnderNavBarCradle>
       <div className={css(cradle)}>
-        
+        {
+          (loading) ? (
+            <p>loading...</p>
+          ) : (
+            <p>{data.hello}</p>
+          )
+        }
       </div>
     </FillUnderNavBarCradle>
   );

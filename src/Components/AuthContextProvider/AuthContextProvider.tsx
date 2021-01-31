@@ -17,6 +17,7 @@ const AuthContextProvider: React.FC = (props) => {
   });
   
 
+  // -> Set user into state
   const setUser = (user: any) => {
     const stateCopy = cloneDeep(state);
     // console.log('[AuthContextProvider]: setUser(): user parameter -> ', user);
@@ -25,6 +26,8 @@ const AuthContextProvider: React.FC = (props) => {
     return;
   };
 
+
+  // -> Get user from state
   const getUser = (): User | undefined => state.user;
 
 

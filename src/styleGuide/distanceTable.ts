@@ -1,0 +1,28 @@
+export const DISTANCE_COEFFICIENT: number = 5;
+
+export const distanceTable: any = {
+  one: 1 * DISTANCE_COEFFICIENT,
+  two: 2 * DISTANCE_COEFFICIENT,
+  three: 3 * DISTANCE_COEFFICIENT,
+  four: 4 * DISTANCE_COEFFICIENT,
+  five: 5 * DISTANCE_COEFFICIENT,
+  six: 6 * DISTANCE_COEFFICIENT,
+  seven: 7 * DISTANCE_COEFFICIENT,
+  eight: 8 * DISTANCE_COEFFICIENT,
+  nine: 9 * DISTANCE_COEFFICIENT,
+  ten: 10 * DISTANCE_COEFFICIENT,
+  eleven: 11 * DISTANCE_COEFFICIENT,
+  twelve: 12 * DISTANCE_COEFFICIENT,
+  thirteen: 13 * DISTANCE_COEFFICIENT,
+  fourteen: 14 * DISTANCE_COEFFICIENT,
+  fifteen: 15 * DISTANCE_COEFFICIENT,
+  sixteen: 16 * DISTANCE_COEFFICIENT,
+  seventeen: 17 * DISTANCE_COEFFICIENT,
+  eighteen: 18 * DISTANCE_COEFFICIENT,
+  nineteen: 19 * DISTANCE_COEFFICIENT,
+  twenty: 20 * DISTANCE_COEFFICIENT,
+  namedVariants: {
+    screenPadding: 3 * DISTANCE_COEFFICIENT,
+    hairline: 1,
+  }
+};

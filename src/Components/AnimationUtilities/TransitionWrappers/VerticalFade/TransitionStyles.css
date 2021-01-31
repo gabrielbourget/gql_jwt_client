@@ -1,0 +1,77 @@
+/********/
+/* FADE */
+/********/
+
+/* Appear */
+.vertical-fade-appear {
+  opacity: 0;
+  z-index: 1;
+  transform: translateY(10px);
+}
+
+.vertical-fade-appear.vertical-fade-appear-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 200ms linear, transform 200ms linear;
+}
+
+/* Enter */
+.vertical-fade-enter {
+  opacity: 0;
+  z-index: 1;
+  transform: translateY(10px);
+}
+
+.vertical-fade-enter.vertical-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms linear, transform 200ms linear;
+}
+
+/* Exit */
+.vertical-fade-exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.vertical-fade-exit.vertical-fade-exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 200ms linear, transform 200ms linear;
+}
+
+.vertical-fade-exit-done {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/*********/
+/* SLIDE */
+/*********/
+
+/* Enter */
+.slide-enter {
+  opacity: 0;
+  transform: scale(0.97) translateY(5px);
+  z-index: 1;
+}
+.slide-enter.slide-enter-active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: opacity 3000ms linear 1000ms, transform 3000ms ease-in-out 1000ms;
+}
+
+/* Exit */
+.slide-exit {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    
+}
+.slide-exit.slide-exit-active {
+    opacity: 0;
+    transform: scale(0.97) translateY(5px);
+    transition: opacity 1500ms linear, transform 1500ms ease-out;
+}
+.slide-exit-done {
+  opacity: 0;
+}

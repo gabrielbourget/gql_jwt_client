@@ -1,0 +1,39 @@
+/********/
+/* FADE */
+/********/
+
+/* Appear */
+.fade-appear {
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 200ms linear;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+}
+
+/* Enter */
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 200ms linear;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+}
+
+/* Exit */
+.fade-exit {
+  opacity: 1;
+  transition: opacity 200ms linear;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+}
+
+.fade-exit-done {
+  opacity: 0;
+}

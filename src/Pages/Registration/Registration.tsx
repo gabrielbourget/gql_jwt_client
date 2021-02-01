@@ -12,9 +12,10 @@ import CircleLoader from '../../Components/Loaders/CircleLoader/CircleLoader';
 import { ThemeInfo, UIContext } from '../../Components/UI_InfoProvider/UI_InfoProvider';
 import { AuthContext } from "../../Components/AuthContextProvider/AuthContextProvider";
 import { LOGIN_ROUTE, DEFAULT_TRANSITION_MICROANIMATION_TIME } from '../../constants';
+import { mapHttpErrorCodeToMessage, useCustomAlert } from '../../helpers';
+import { useRegisterMutation } from "../../generated/graphql";
 // -> Within Component
 import { styleGen } from './RegistrationStyles';
-import { mapHttpErrorCodeToMessage, useCustomAlert } from '../../helpers';
 
 // - TODO: -> Hook this component up full stack to a GraphQL mutation that can carry out registrations.
 const Registration: React.FC = (props) => {
@@ -26,6 +27,9 @@ const Registration: React.FC = (props) => {
   const { themeInfo }: { themeInfo: ThemeInfo } = useContext(UIContext);
   const { register } = useContext(AuthContext);
   const { pageCradle } = styleGen(themeInfo);
+  const [APIRegister] = useRegisterMutation();
+
+  console.log("register function -> ", register);
 
   let registrationCardTimeout: ReturnType<typeof setTimeout>;
   let loaderTimeout: ReturnType<typeof setTimeout>;
@@ -47,15 +51,20 @@ const Registration: React.FC = (props) => {
       setLoadingStatus(true);
     }, DEFAULT_TRANSITION_MICROANIMATION_TIME);
     
-    const { error } = await register(values);
+    const { email, password } = values;
+    const response = await APIRegister({ variables: { email, password }});
+    // const response = await register(values);
+    console.log("register response -> ", response);
 
+    let error: undefined;
     if (error) {
       setErrorStatus(true);
       setLoaderInStatus(false);
       loaderTimeout = setTimeout(() => {
         setLoadingStatus(false);
         setCardInStatus(true);
-        useCustomAlert(mapHttpErrorCodeToMessage(error), themeInfo);
+        // useCustomAlert(mapHttpErrorCodeToMessage(error), themeInfo);
+        useCustomAlert("boop", themeInfo);
       }, DEFAULT_TRANSITION_MICROANIMATION_TIME);
     }
     

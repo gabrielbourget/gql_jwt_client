@@ -14,17 +14,12 @@ import { styleGen } from './RegistrationFormStyles';
 
 const initialValues: IRegistrationFormState = {
   email: '',
-  name1: '',
-  name2: "",
-  company: "",
   password: '',
   passwordConfirmation: '',
 };
 
 const validationSchema = yup.object({
   email: yup.string().email('Invalid email format').required('Email is required'),
-  name1: yup.string().required('First name is required'),
-  name2: yup.string().required('Last name is required'),
   password: yup.string().required('Password is required'),
   passwordConfirmation: yup.string().oneOf(
     [yup.ref('password'), ''],

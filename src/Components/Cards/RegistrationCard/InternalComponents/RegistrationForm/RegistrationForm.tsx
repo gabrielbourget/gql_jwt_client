@@ -63,9 +63,6 @@ const RegistrationForm: React.FC<IRegistrationFormProps> = (props) => {
                   />
                 <div style={{ marginTop: themeInfo.distance.two }}></div>
 
-                {/* <Input name="company" label="Company" />
-                <div style={{ marginTop: themeInfo.distance.two}}></div> */}
-
                 {/* - TODO: ->  Internationalize text */}
                 <Input
                   required

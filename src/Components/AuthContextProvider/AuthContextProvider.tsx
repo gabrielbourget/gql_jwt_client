@@ -49,9 +49,20 @@ const AuthContextProvider: React.FC = (props) => {
     
   };
 
+
+  // ---------- //
+  // - LOGOUT - //
+  // ---------- //
+  const logout = () => {
+    // JWTManager.eraseToken();
+    // JWTManager.eraseRefreshToken();
+    // JWTManager.eraseExpiryDateTime();
+    setUser(undefined);
+  }
+
   return (
       <AuthContext.Provider value = {{
-        ...state, setUser, getUser, login, register,
+        ...state, setUser, getUser, login, register, logout,
       }}>
         { children }
       </AuthContext.Provider>

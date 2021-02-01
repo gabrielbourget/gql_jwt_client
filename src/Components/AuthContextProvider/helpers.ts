@@ -5,6 +5,7 @@ export interface AuthContext {
   getUser(): User | undefined;
   register(args: IRegistrationArgs): any;
   login(args: ILoginArgs): any;
+  logout(): any;
 }
 
 /* - TODO: -> Refactor this beyond just Google Login */
@@ -13,6 +14,7 @@ export const initAuthContextValue: AuthContext = {
   getUser: () => undefined,
   register: (args: IRegistrationArgs) => {},
   login: (args: ILoginArgs) => {},
+  logout: () => {},
 }
 
 export interface IAuthContextState {

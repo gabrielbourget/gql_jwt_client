@@ -29,19 +29,19 @@ const EmailLoginForm: React.FC<ILoginFormProps> = (props) => {
   const { onSubmit, onRegistrationClick, onBackToLoginChoicesClick } = props;
   const { formCradle, topCradle, bottomCradle } = styleGen(themeInfo);
 
+  console.log("onSubmit -> ", onSubmit);
+
   const onFormSubmission = (values: FormikValues, onSubmitProps: any) => {
     const { resetForm, setSubmitting } = onSubmitProps;
-
-    // - TODO: -> Call login mutation here when component is hooked up full stack.
-    onSubmit();
+    onSubmit(values);
 
     // - TODO: -> Actual timeout (before the form is reset and its submission status is
     //            set to false) will be due to a network delay of logging into a backend.
     //            Remove this mocked timeout once component is integrated full stack.
-    setTimeout(() => {
-      resetForm();
-      setSubmitting(false);
-    }, 2000);
+    // setTimeout(() => {
+    //   resetForm();
+    //   setSubmitting(false);
+    // }, 2000);
   };
 
   return (

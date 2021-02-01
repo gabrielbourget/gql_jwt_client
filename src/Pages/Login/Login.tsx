@@ -16,6 +16,7 @@ import {
 } from "../../constants"
 import { underConstructionAlert, useCustomAlert } from "../../helpers";
 import { mapHttpErrorCodeToMessage } from "../../helpers/";
+import { useLoginMutation } from "../../generated/graphql";
 // -> Within Component
 import { styleGen } from './LoginStyles';
 import { ILoginArgs } from '../../Components/AuthContextProvider/helpers';
@@ -31,6 +32,7 @@ const Login: React.FC = (props) => {
   const { themeInfo }: { themeInfo: ThemeInfo } = useContext(UIContext);
   const { login } = useContext(AuthContext)
   const { pageCradle } = styleGen(themeInfo);
+  const [APILogin] = useLoginMutation();
   
   let loginCardTimeout: ReturnType<typeof setTimeout>;
   let loaderTimeout: ReturnType<typeof setTimeout>;
@@ -57,7 +59,11 @@ const Login: React.FC = (props) => {
     }, DEFAULT_TRANSITION_MICROANIMATION_TIME);
 
     // const { error } = await login(values);
-    underConstructionAlert();
+    const { email, password } = values;
+    const response = await APILogin({ variables: { email, password }});
+
+    console.log("login response -> ", response);
+    
     let error: any;
     if (error) {
       setErrorStatus(true);

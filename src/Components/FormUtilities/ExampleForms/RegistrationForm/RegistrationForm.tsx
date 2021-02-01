@@ -56,12 +56,14 @@ const RegistrationForm:React.FC = () => {
                 type="email"
                 label="Email"
                 name="email"
-              />
+                customControlCradleStyles={{ width: "100%" }}
+                />
               <FormikControl
                 control="input"
                 type="password"
                 label="Password"
                 name="password"
+                customControlCradleStyles={{ width: "100%" }}
               />
               <FormikControl
                 control="input"

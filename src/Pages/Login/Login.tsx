@@ -2,6 +2,7 @@
 // -> Beyond Codebase
 import React, { useContext, useEffect, useState } from 'react';
 import { css } from 'aphrodite';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useHistory, useLocation, RouteProps } from 'react-router-dom';
 // -> Within Codebase
 import FillUnderNavBarCradle from '../../Components/LayoutUtilities/Cradles/FillUnderNavBarCradle/FillUnderNavBarCradle';
@@ -10,11 +11,11 @@ import LoginCard from "../../Components/Cards/LoginCard/LoginCard";
 import CircleLoader from '../../Components/Loaders/CircleLoader/CircleLoader';
 import Fade from '../../Components/AnimationUtilities/TransitionWrappers/Fade/Fade';
 import { ThemeInfo, UIContext } from '../../Components/UI_InfoProvider/UI_InfoProvider';
-import { AuthContext } from "../../Components/AuthContextProvider/AuthContextProvider";
+// import { AuthContext } from "../../Components/AuthContextProvider/AuthContextProvider";
 import {
   REGISTRATION_ROUTE, DEFAULT_TRANSITION_MICROANIMATION_TIME, PROFILE_ROUTE,
 } from "../../constants"
-import { underConstructionAlert, useCustomAlert } from "../../helpers";
+import { useCustomAlert } from "../../helpers";
 import { mapHttpErrorCodeToMessage } from "../../helpers/";
 import { useLoginMutation } from "../../generated/graphql";
 // -> Within Component
@@ -23,6 +24,7 @@ import { ILoginArgs } from '../../Components/AuthContextProvider/helpers';
 
 const Login: React.FC = (props) => {
   const [loadingStatus, setLoadingStatus] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [errorStatus, setErrorStatus] = useState(false);
   const [loginCardInStatus, setLoginCardInStatus] = useState(true);
   const [loaderInStatus, setLoaderInStatus] = useState(true);
@@ -30,7 +32,7 @@ const Login: React.FC = (props) => {
   // const { state: locationState }: RouteProps["location"] = useLocation(); // - TODO: -> Figure out Typescript blocker here.
   const { state: locationState }: any = useLocation(); // - TODO: -> Figure out Typescript blocker here.
   const { themeInfo }: { themeInfo: ThemeInfo } = useContext(UIContext);
-  const { login } = useContext(AuthContext)
+  // const { login } = useContext(AuthContext)
   const { pageCradle } = styleGen(themeInfo);
   const [APILogin] = useLoginMutation();
   
@@ -46,6 +48,7 @@ const Login: React.FC = (props) => {
       clearTimeout(loginCardTimeout);
       clearTimeout(loaderTimeout);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const navigateToRegistration = () => history.push(REGISTRATION_ROUTE);

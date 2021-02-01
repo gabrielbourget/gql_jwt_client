@@ -1,28 +1,30 @@
 // -> Beyond Codebase
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import { css } from 'aphrodite';
 // -> Within Codebase
-import Button from '../../Components/Button/Button';
+// import Button from '../../Components/Button/Button';
 import FillUnderNavBarCradle from '../../Components/LayoutUtilities/Cradles/FillUnderNavBarCradle/FillUnderNavBarCradle';
-import CircleLoader from '../../Components/Loaders/CircleLoader/CircleLoader';
+// import CircleLoader from '../../Components/Loaders/CircleLoader/CircleLoader';
 import { User } from '../../Types';
 import { UIContext, ThemeInfo } from '../../Components/UI_InfoProvider/UI_InfoProvider';
-import { ROUNDED, GABRIEL_DATA_ROUTE } from '../../constants';
+// import { ROUNDED, GABRIEL_DATA_ROUTE } from '../../constants';
 import { useUsersQuery } from "../../generated/graphql";
 // -> Within Component
 import { styleGen } from './HomeStyles';
 
 const Home: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  // const history = useHistory();
   const { themeInfo }: { themeInfo: ThemeInfo } = useContext(UIContext);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { cradle, titleText } = styleGen(themeInfo);
-  const navigateToData = () => history.push(GABRIEL_DATA_ROUTE);
+  // const navigateToData = () => history.push(GABRIEL_DATA_ROUTE);
   
 
 
-  const { data, error }: any = useUsersQuery({ fetchPolicy: "network-only" });
+  const { data }: any = useUsersQuery({ fetchPolicy: "network-only" });
 
   if (!data) return <div> loading </div>;
 

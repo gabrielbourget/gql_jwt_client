@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { Formik, Form, FormikValues } from 'formik';
 import { css } from 'aphrodite';
 // -> Within Codebase
-import BackToLoginChoicesButton from '../../InternalComponents/BackToLoginChoicesButton/BackToLoginChoicesButton';
+// import BackToLoginChoicesButton from '../../InternalComponents/BackToLoginChoicesButton/BackToLoginChoicesButton';
 import Input from '../../../../../Components/FormUtilities/Input/Input';
 import Button from '../../../../../Components/Button/Button';
 import { UIContext, ThemeInfo } from '../../../../../Components/UI_InfoProvider/UI_InfoProvider';
@@ -32,7 +32,7 @@ const EmailLoginForm: React.FC<ILoginFormProps> = (props) => {
   console.log("onSubmit -> ", onSubmit);
 
   const onFormSubmission = (values: FormikValues, onSubmitProps: any) => {
-    const { resetForm, setSubmitting } = onSubmitProps;
+    // const { resetForm, setSubmitting } = onSubmitProps;
     onSubmit(values);
 
     // - TODO: -> Actual timeout (before the form is reset and its submission status is

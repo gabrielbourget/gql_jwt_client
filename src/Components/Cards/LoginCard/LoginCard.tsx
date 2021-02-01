@@ -5,7 +5,7 @@ import { css } from 'aphrodite';
 import Fade from '../../../Components/AnimationUtilities/TransitionWrappers/Fade/Fade';
 import { UIContext, ThemeInfo } from '../../../Components/UI_InfoProvider/UI_InfoProvider';
 import { DEFAULT_TRANSITION_MICROANIMATION_TIME } from '../../../constants';
-import { underConstructionAlert } from '../../../helpers';
+// import { underConstructionAlert } from '../../../helpers';
 // -> Within Component
 import EmailLoginForm from './InternalComponents/EmailLoginForm/EmailLoginForm';
 import LoginChoices from './InternalComponents/LoginChoices/LoginChoices';

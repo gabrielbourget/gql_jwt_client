@@ -29,8 +29,6 @@ const Registration: React.FC = (props) => {
   const { pageCradle } = styleGen(themeInfo);
   const [APIRegister] = useRegisterMutation();
 
-  console.log("register function -> ", register);
-
   let registrationCardTimeout: ReturnType<typeof setTimeout>;
   let loaderTimeout: ReturnType<typeof setTimeout>;
 

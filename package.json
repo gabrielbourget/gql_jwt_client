@@ -51,7 +51,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -69,11 +70,16 @@
     ]
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.20.1",
     "@types/react": "^16.9.35",
     "@types/react-datepicker": "^3.0.2",
     "@types/react-dom": "^16.9.8",
     "@types/react-onclickoutside": "^6.7.3",
     "@types/react-transition-group": "^4.4.0",
-    "@types/yup": "^0.29.3"
+    "@types/yup": "^0.29.3",
+    "@graphql-codegen/typescript": "1.20.2",
+    "@graphql-codegen/typescript-react-apollo": "2.2.1",
+    "@graphql-codegen/typescript-operations": "1.17.14",
+    "@graphql-codegen/introspection": "1.18.1"
   }
 }

@@ -3,11 +3,9 @@ import React from 'react';
 // import React, { useContext } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 // -> Within Codebase
-// import { UIContext } from '../../Components/UI_InfoProvider/UI_InfoProvider';
-// import CourageCircleLoader from '../../Components/Loaders/CircleLoader/Variants/CourageCircleLoader/CourageCircleLoader';
 import FillUnderNavBarCradle from '../../Components/LayoutUtilities/Cradles/FillUnderNavBarCradle/FillUnderNavBarCradle';
-import { gql, useQuery } from "@apollo/client";
 import { NAV_BAR_HEIGHT } from '../../constants';
+import { useHelloQuery } from '../../generated/graphql';
 
 const styleGen = () => {
   return StyleSheet.create({
@@ -26,17 +24,13 @@ const styleGen = () => {
 const TestGround: React.FC = () => {
   // const uiInfo = useContext(UIContext);
   const { cradle } = styleGen();
-  const { data, loading } = useQuery(gql`
-    {
-      hello
-    }
-  `);
+  const { data, loading } = useHelloQuery();
 
   return (
     <FillUnderNavBarCradle>
       <div className={css(cradle)}>
         {
-          (loading) ? (
+          (loading || !data) ? (
             <p>loading...</p>
           ) : (
             <p>{data.hello}</p>

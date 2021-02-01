@@ -1,11 +1,12 @@
 // -> Beyond Codebase
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import cloneDeep from 'lodash.clonedeep';
-import { useQuery, useMutation, gql } from "@apollo/client";
 // -> Within codebase
 import { User } from '../../Types';
 // -> Within component
-import { initAuthContextValue } from "./helpers";
+import {
+  ILoginArgs, initAuthContextValue, IRegistrationArgs
+} from "./helpers";
 
 export const AuthContext = React.createContext(initAuthContextValue);
 
@@ -17,7 +18,9 @@ const AuthContextProvider: React.FC = (props) => {
   });
   
 
-  // -> Set user into state
+  // ----------------------------- //
+  // - SET CURRENT USER IN STATE - //
+  // ----------------------------- //
   const setUser = (user: any) => {
     const stateCopy = cloneDeep(state);
     // console.log('[AuthContextProvider]: setUser(): user parameter -> ', user);
@@ -27,12 +30,29 @@ const AuthContextProvider: React.FC = (props) => {
   };
 
 
-  // -> Get user from state
+  // ------------------------------- //
+  // - GET CURRENT USER FROM STATE - //
+  // ------------------------------- //
   const getUser = (): User | undefined => state.user;
+  
+  // ---------------- //
+  // - REGISTRATION - //
+  // ---------------- //
+  const register = async (args: IRegistrationArgs): Promise<any> => {
 
+  };
+
+  // --------- //
+  // - LOGIN - //
+  // --------- //
+  const login = async (args: ILoginArgs): Promise<any> => {
+    
+  };
 
   return (
-      <AuthContext.Provider value = {{ ...state, setUser, getUser }}>
+      <AuthContext.Provider value = {{
+        ...state, setUser, getUser, login, register,
+      }}>
         { children }
       </AuthContext.Provider>
   );

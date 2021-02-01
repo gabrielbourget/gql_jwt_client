@@ -1,4 +1,5 @@
 import { StyleSheet } from 'aphrodite';
+import { NAV_BAR_HEIGHT } from '../../../constants';
 import { ThemeInfo } from '../../UI_InfoProvider/UI_InfoProvider';
 
 export const styleGen = (themeInfo: ThemeInfo) => {
@@ -6,8 +7,8 @@ export const styleGen = (themeInfo: ThemeInfo) => {
 
   return StyleSheet.create({
     pageCradle: {
-      height: '100%',
-      width: '100%',
+      height: `calc(100vh - ${NAV_BAR_HEIGHT})`,
+      flex: 1,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',

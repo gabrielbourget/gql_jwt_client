@@ -10,7 +10,7 @@ import VerticalFade from '../../Components/AnimationUtilities/TransitionWrappers
 import RegistrationCard from "../../Components/Cards/RegistrationCard/RegistrationCard";
 import CircleLoader from '../../Components/Loaders/CircleLoader/CircleLoader';
 import { ThemeInfo, UIContext } from '../../Components/UI_InfoProvider/UI_InfoProvider';
-// import { AuthContext } from "../../Components/AuthContextProvider/AuthContextProvider";
+import { AuthContext } from "../../Components/AuthContextProvider/AuthContextProvider";
 import { LOGIN_ROUTE, DEFAULT_TRANSITION_MICROANIMATION_TIME } from '../../constants';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { mapHttpErrorCodeToMessage, useCustomAlert } from '../../helpers';
@@ -28,7 +28,7 @@ const Registration: React.FC = (props) => {
   const [loaderInStatus, setLoaderInStatus] = useState(true);
   const history = useHistory();
   const { themeInfo }: { themeInfo: ThemeInfo } = useContext(UIContext);
-  // const { register } = useContext(AuthContext);
+  const { register } = useContext(AuthContext);
   const { pageCradle } = styleGen(themeInfo);
   const [APIRegister] = useRegisterMutation();
 
@@ -47,6 +47,7 @@ const Registration: React.FC = (props) => {
   const navigateToLogin = () => history.push(LOGIN_ROUTE);
 
   const onRegistrationSubmission = async (values: IRegistrationArgs) => {
+    
     // -> Allow registration card to transition down before loading spinner is shown
     setCardInStatus(false);
     registrationCardTimeout = setTimeout(() => {
@@ -55,6 +56,7 @@ const Registration: React.FC = (props) => {
     
     const { email, password } = values;
     const response = await APIRegister({ variables: { email, password }});
+    // console.log("register function -> ", register);
     // const response = await register(values);
     console.log("register response -> ", response);
 

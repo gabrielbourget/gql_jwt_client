@@ -23,10 +23,14 @@ const Home: React.FC = () => {
   // const navigateToData = () => history.push(GABRIEL_DATA_ROUTE);
   
 
+  const { data, error }: any = useUsersQuery({ fetchPolicy: "network-only" });
 
-  const { data }: any = useUsersQuery({ fetchPolicy: "network-only" });
+  // if (!data) return <div> loading </div>;
 
-  if (!data) return <div> loading </div>;
+  if (error) {
+    console.log("error -> ", error);
+    return <div>{`Error -> ${error}`}</div>
+  }
 
   return (
     <FillUnderNavBarCradle>

@@ -1,15 +1,32 @@
 // -> Beyond Codebase
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 // -> Within Codebase
 import UI_InfoProvider from '../UI_InfoProvider/UI_InfoProvider';
 import App from '../App/App';
+import { getAccessToken } from '../../accessToken';
 
 const WrappedApp: React.FC = () => {
+  
+  const httpLink = createHttpLink({
+    uri: "http://localhost:4000/graphql"
+  });
+  
+  const authLink = setContext((_, { headers }) => {
+    const accessToken = getAccessToken();
+    console.log("access token ->", getAccessToken());
+    return {
+      headers: { authorization: (accessToken) ? `Bearer ${accessToken}` : "" }
+    };
+  })
+
   const client = new ApolloClient({
-    uri: "http://localhost:4000/graphql",
-    cache: new InMemoryCache()
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache(),
+    // credentials: "include",
+    name: "GQL JWT Client",
   });
 
   return (

@@ -18,6 +18,7 @@ import {
 import { useCustomAlert } from "../../helpers";
 import { mapHttpErrorCodeToMessage } from "../../helpers/";
 import { useLoginMutation } from "../../generated/graphql";
+import { setAccessToken } from '../../accessToken';
 // -> Within Component
 import { styleGen } from './LoginStyles';
 import { ILoginArgs } from '../../Components/AuthContextProvider/helpers';
@@ -65,7 +66,7 @@ const Login: React.FC = (props) => {
     const { email, password } = values;
     const response = await APILogin({ variables: { email, password }});
 
-    console.log("login response -> ", response);
+    // console.log("login response -> ", response);
     
     let error: any;
     if (error) {
@@ -82,6 +83,7 @@ const Login: React.FC = (props) => {
       // -> Allow loader to fade out before pushing to the user profile page
       setLoaderInStatus(false);
       loaderTimeout = setTimeout(() => {
+        if (response && response.data) setAccessToken(response.data.login.accessToken);
         if (redirectURL) history.push(redirectURL);
         else navigateToUserProfile();
       }, DEFAULT_TRANSITION_MICROANIMATION_TIME);

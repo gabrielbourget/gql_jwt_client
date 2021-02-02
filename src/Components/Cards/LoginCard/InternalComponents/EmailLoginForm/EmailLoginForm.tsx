@@ -29,7 +29,7 @@ const EmailLoginForm: React.FC<ILoginFormProps> = (props) => {
   const { onSubmit, onRegistrationClick, onBackToLoginChoicesClick } = props;
   const { formCradle, topCradle, bottomCradle } = styleGen(themeInfo);
 
-  console.log("onSubmit -> ", onSubmit);
+  // console.log("onSubmit -> ", onSubmit);
 
   const onFormSubmission = (values: FormikValues, onSubmitProps: any) => {
     // const { resetForm, setSubmitting } = onSubmitProps;

@@ -16,6 +16,7 @@ const AuthContextProvider: React.FC = (props) => {
   const [state, setState] = useState<IAuthContextState>({ user: undefined });
   const [APIRegister] = useRegisterMutation();
 
+
   // ----------------------------- //
   // - SET CURRENT USER IN STATE - //
   // ----------------------------- //

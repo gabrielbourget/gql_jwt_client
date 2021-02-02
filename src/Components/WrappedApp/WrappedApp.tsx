@@ -14,18 +14,18 @@ const WrappedApp: React.FC = () => {
     uri: "http://localhost:4000/graphql"
   });
   
+  // -> Put the access JWT on every request, if it's available
   const authLink = setContext((_, { headers }) => {
     const accessToken = getAccessToken();
-    console.log("access token ->", getAccessToken());
     return {
-      headers: { authorization: (accessToken) ? `Bearer ${accessToken}` : "" }
+      headers: { "Authorization": (accessToken) ? `Bearer ${accessToken}` : "" }
     };
   })
 
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
-    // credentials: "include",
+    credentials: "include",
     name: "GQL JWT Client",
   });
 

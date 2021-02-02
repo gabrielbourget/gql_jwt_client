@@ -25,10 +25,7 @@ const Home: React.FC = () => {
 
   const { data, error }: any = useUsersQuery({ fetchPolicy: "network-only" });
 
-  // if (!data) return <div> loading </div>;
-
   if (error) {
-    console.log("error -> ", error);
     return <div>{`Error -> ${error}`}</div>
   }
 

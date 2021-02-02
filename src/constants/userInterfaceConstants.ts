@@ -18,3 +18,6 @@ export const DEFAULT_ALERT_HANG_TIME = 4000;
 // -> NETWORK CONSTANTS
 export const BASE_URL = "http://localhost:4000/"
 export const REFRESH_TOKEN_URL=`${BASE_URL}refresh_token`;
+
+// -> KEYS
+export const ACCESS_TOKEN_KEY = "accessToken";

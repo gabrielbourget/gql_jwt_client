@@ -8,6 +8,7 @@ import NavBar from '../NavBar/NavBar';
 import Backdrop from '../Backdrop/Backdrop';
 import RoutingModule from '../RoutingModule/RoutingModule';
 import { REFRESH_TOKEN_URL } from '../../constants';
+import { setAccessToken } from '../../accessToken';
 
 const App: React.FC = () => {
   const uiContext = useContext(UIContext);
@@ -22,10 +23,10 @@ const App: React.FC = () => {
 
       const data = await response.json();
       console.log("data -> ", data);
+      setAccessToken(data.accessToken);
     })();
-  }, [])
+  }, []);
   
-  // - TODO: -> Integrate system-scope <Alert /> system when component is built/tested.
   return (
     <>
       <NavBar />

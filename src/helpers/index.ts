@@ -6,3 +6,4 @@ export * from './determineLinkIcon';
 export * from './findResourceByID';
 export * from "./useCustomAlert";
 export * from "./mapHttpErrorCodeToMessage";
+export * from "./clearCookies";

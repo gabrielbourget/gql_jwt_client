@@ -3,13 +3,15 @@ import React, { useContext, useState } from 'react';
 // import { useHistory } from 'react-router-dom'
 import { css } from 'aphrodite';
 // -> Within Codebase
-// import Button from '../../Components/Button/Button';
+import Button from '../../Components/Button/Button';
 import FillUnderNavBarCradle from '../../Components/LayoutUtilities/Cradles/FillUnderNavBarCradle/FillUnderNavBarCradle';
 // import CircleLoader from '../../Components/Loaders/CircleLoader/CircleLoader';
 import { User } from '../../Types';
 import { UIContext, ThemeInfo } from '../../Components/UI_InfoProvider/UI_InfoProvider';
+import { ROUNDED } from '../../constants';
+import { setAccessToken } from '../../accessToken';
 // import { ROUNDED, GABRIEL_DATA_ROUTE } from '../../constants';
-import { useUsersQuery } from "../../generated/graphql";
+import { useUsersQuery, useLogoutMutation } from "../../generated/graphql";
 // -> Within Component
 import { styleGen } from './HomeStyles';
 
@@ -24,6 +26,13 @@ const Home: React.FC = () => {
   
 
   const { data, error }: any = useUsersQuery({ fetchPolicy: "network-only" });
+  const [APILogout, { client }] = useLogoutMutation();
+
+  const logout = async () => {
+    setAccessToken("");
+    await APILogout();
+    await client.resetStore();
+  };
 
   if (error) {
     return <div>{`Error -> ${error}`}</div>
@@ -44,6 +53,13 @@ const Home: React.FC = () => {
             )
           })}
         </ul>
+
+        <Button
+          buttonText="Logout"
+          buttonGeometry={ROUNDED}
+          onClick={logout}
+          customTextStyles={{ color: themeInfo.palette.white }}
+        />
 
         {/* <div style={{ marginTop: themeInfo.distance.two }}></div>
         <Button

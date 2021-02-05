@@ -14,7 +14,6 @@ import { setAccessToken } from '../../accessToken';
 import { useUsersQuery, useLogoutMutation } from "../../generated/graphql";
 // -> Within Component
 import { styleGen } from './HomeStyles';
-import { clearCookies } from '../../helpers';
 
 const Home: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
